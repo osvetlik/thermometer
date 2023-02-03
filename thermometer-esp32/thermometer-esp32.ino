@@ -50,12 +50,21 @@ void loop() {
   float humidity = dht.readHumidity();
   // Read temperature as Celsius (the default)
   float temperature = dht.readTemperature();
-  // Compute heat index in Celsius (isFahreheit = false)
-  float heatIndex = dht.computeHeatIndex(temperature, humidity, false);
 
-  sprintf(humidityStr, HUMIDITY_FORMAT, humidity);
-  sprintf(temperatureStr, TEMPERATURE_FORMAT, temperature);
-  sprintf(heatIndexStr, TEMPERATURE_FORMAT, heatIndex);
+  if (isnan(humidity) || isnan(temperature)) {
+    sprintf(humidityStr, "--");
+    sprintf(temperatureStr, "--");
+    sprintf(heatIndexStr, "--");
+    dht.begin();
+  }
+  else {
+    // Compute heat index in Celsius (isFahreheit = false)
+    float heatIndex = dht.computeHeatIndex(temperature, humidity, false);
+
+    sprintf(humidityStr, HUMIDITY_FORMAT, humidity);
+    sprintf(temperatureStr, TEMPERATURE_FORMAT, temperature);
+    sprintf(heatIndexStr, TEMPERATURE_FORMAT, heatIndex);
+  }
 
   display.fillRect(0, 0, display.width(), display.height(), 1);
 
@@ -93,39 +102,3 @@ void connectToWiFi() {
   }
   Serial.println(WiFi.localIP());
 }
-
-// void helloWorldNotPaged() {
-//   Serial.println(F("Trying the display."));
-  // center the bounding box by transposition of the origin:
-  // uint16_t x = ((display.width() - tbw) / 2) - tbx;
-  // uint16_t y = ((display.height() - tbh) / 2) - tby;
-  // display.setFullWindow();
-  // display.fillScreen(GxEPD_WHITE);
-  // display.fillRect(0, y - tbh, display.width(), tbh, GxEPD_WHITE);
-  // display.setCursor(x, y);
-  // display.print(HelloWorld);
-  // display.displayWindow(0, y - tbh, display.width(), tbh);
-  // display.display(true);
-//   Serial.println(F("Display end."));
-// }
-
-// void helloWorld()
-// {
-//   Serial.println(F("Trying the display."));
-  // center the bounding box by transposition of the origin:
-//   uint16_t x = ((display.width() - tbw) / 2) - tbx;
-//   uint16_t y = ((display.height() - tbh) / 2) - tby;
-//   display.setFullWindow();
-//   display.firstPage();
-//   int i = 0;
-//   do
-//   {
-//     display.fillScreen(GxEPD_WHITE);
-//     display.setCursor(x, y);
-//     display.print(HelloWorld);
-//     Serial.printf("Display loop %d\n", i++);
-//   }
-//   while (display.nextPage());
-//   Serial.println(F("Display end."));
-//   display.hibernate();
-// }
