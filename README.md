@@ -1,5 +1,16 @@
 # ESP32 Thermometer
 
+I am trying to develop an inner and outer temperature and humidity measuring device
+based on an ESP32 board, using an e-ink display and powered by a battery. This is
+my first serious project, I'm pretty sure I'm going to learn a lot ;-).
+
+Desired features:
+* low power consumption
+* at least one external sensor, ideally communicating over RF
+* battery status indicator
+* nice yet low-power display (e-ink, bought a WaveShare 2.9in)
+* later, this should be connected to a local HomeAssistant installation (or similar)
+
 ## Lessons learned
 
 ### DHT11 Reset
