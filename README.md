@@ -42,4 +42,7 @@ if (isnan(humidity) || isnan(temperature)) {
 Yes, that seems to be it, simply try restarting the connection to the sensor using
 `dht.begin()`.
 
-Tested by unplugging and re-plugging the sensor.
+Tested by unplugging and re-plugging the sensor, see the video below.
+
+[![DHT11 Reconnect](http://i3.ytimg.com/vi/VTe1ncc6I-Q/hqdefault.jpg)](https://youtu.be/VTe1ncc6I-Q)
+
