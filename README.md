@@ -15,7 +15,7 @@ If your code never displayed any measurements and started with `nan`, there are
 [other sources to consult](https://randomnerdtutorials.com/solved-dht11-dht22-failed-to-read-from-dht-sensor/).
 
 And now to the solution, I'm not sure it covers all possible situations, but it
-works as a charm for me so far:
+has worked as a charm for me so far:
 
 ```C
 if (isnan(humidity) || isnan(temperature)) {
