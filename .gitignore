@@ -1,0 +1,4 @@
+thermometer-esp32/debug.cfg
+thermometer-esp32/debug_custom.json
+thermometer-esp32/esp32.svd
+thermometer-esp32/cfg.h
